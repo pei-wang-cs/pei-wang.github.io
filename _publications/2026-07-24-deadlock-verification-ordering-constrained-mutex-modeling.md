@@ -4,13 +4,15 @@ collection: publications
 category: conferences
 permalink: /publication/deadlock-verification-ordering-constrained-mutex-modeling/
 excerpt: >-
-  **Abstract.** Conventional assume-based mutex models are effective for safety
-  verification, but their abstraction of waiting behavior can make deadlock
-  checking inaccurate. This paper introduces an ordering-constrained mutex
-  model for partial-order-based verification, proves the approach correct, and
-  implements it in the DEAGLE-DL prototype. Experiments against ESBMC and a
-  state-of-the-art static deadlock analyzer show substantially higher precision
-  while preserving practical efficiency.
+  Mutexes are widely used to synchronize concurrent programs, but incorrect
+  locking can cause deadlocks. Conventional assume-based encodings support
+  safety checking while abstracting away waiting behavior, which can make
+  deadlock results inaccurate. This paper introduces ordering constraints that
+  distinguish eventual lock acquisition from indefinite blocking within a
+  partial-order-based verification framework. We prove the method correct and
+  implement it in the DEAGLE-DL prototype. Experiments against ESBMC with
+  conventional mutex modeling and a state-of-the-art static deadlock analyzer
+  show markedly better precision while retaining practical efficiency.
 date: 2026-07-24
 venue: "38th International Conference on Computer Aided Verification (CAV 2026)"
 paperurl: "https://doi.org/10.1007/978-3-032-32519-8_3"
@@ -21,7 +23,7 @@ citation: "Pei Wang, Zhilei Han, Zhihang Sun, and Fei He. (2026). &quot;Deadlock
 Abstract
 --------
 
-Conventional assume-based mutex models are effective for safety verification, but their abstraction of waiting behavior can make deadlock checking inaccurate. This paper introduces an ordering-constrained mutex model for partial-order-based verification, proves the approach correct, and implements it in the **DEAGLE-DL** prototype. Experiments against ESBMC and a state-of-the-art static deadlock analyzer show substantially higher precision while preserving practical efficiency.
+Mutexes are widely used to synchronize concurrent programs, but incorrect locking can cause deadlocks. Conventional assume-based encodings support safety checking while abstracting away waiting behavior, which can make deadlock results inaccurate. This paper introduces ordering constraints that distinguish eventual lock acquisition from indefinite blocking within a partial-order-based verification framework. We prove the method correct and implement it in the **DEAGLE-DL** prototype. Experiments against ESBMC with conventional mutex modeling and a state-of-the-art static deadlock analyzer show markedly better precision while retaining practical efficiency.
 
 Links
 -----
