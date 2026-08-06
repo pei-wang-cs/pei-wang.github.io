@@ -1,6 +1,6 @@
 ---
 layout: archive
-title: "CV"
+title: "Curriculum Vitae"
 permalink: /cv/
 author_profile: true
 redirect_from:
@@ -10,55 +10,34 @@ redirect_from:
 {% include base_path %}
 
 Education
-======
-* Ph.D in Version Control Theory, GitHub University, 2018 (expected)
-* M.S. in Jekyll, GitHub University, 2014
-* B.S. in GitHub, GitHub University, 2012
+------
+- **2023–present:** Ph.D. student, School of Software, Tsinghua University, Beijing, China
 
-Work experience
-======
-* Spring 2024: Academic Pages Collaborator
-  * GitHub University
-  * Duties includes: Updates and improvements to template
-  * Supervisor: The Users
-
-* Fall 2015: Research Assistant
-  * GitHub University
-  * Duties included: Merging pull requests
-  * Supervisor: Professor Hub
-
-* Summer 2015: Research Assistant
-  * GitHub University
-  * Duties included: Tagging issues
-  * Supervisor: Professor Git
-  
-Skills
-======
-* Skill 1
-* Skill 2
-  * Sub-skill 2.1
-  * Sub-skill 2.2
-  * Sub-skill 2.3
-* Skill 3
+Research Interests
+------
+- Formal methods and software verification
+- Concurrent program verification
+- Deadlock and data-race analysis
+- SMT-based and partial-order-based verification
 
 Publications
-======
-  <ul>{% for post in site.publications reversed %}
-    {% include archive-single-cv.html %}
-  {% endfor %}</ul>
-  
-Talks
-======
-  <ul>{% for post in site.talks reversed %}
-    {% include archive-single-talk-cv.html  %}
-  {% endfor %}</ul>
-  
-Teaching
-======
-  <ul>{% for post in site.teaching reversed %}
-    {% include archive-single-cv.html %}
-  {% endfor %}</ul>
-  
-Service and leadership
-======
-* Currently signed in to 43 different slack teams
+------
+<ul>
+{% for publication in site.publications reversed %}
+  <li>
+    <a href="{{ base_path }}{{ publication.url }}"><strong>{{ publication.title }}</strong></a><br>
+    {{ publication.citation }}
+  </li>
+{% endfor %}
+</ul>
+
+Research Software
+------
+- **DEAGLE-DL:** Artifact for deadlock verification via ordering-constrained mutex modeling. [[DOI](https://doi.org/10.5281/zenodo.19696864)]
+- **DEAGLE-DR:** Artifact for precise and efficient static data-race detection. [[DOI](https://doi.org/10.5281/zenodo.21744663)]
+
+Contact
+------
+- Email: [wang-p23@mails.tsinghua.edu.cn](mailto:wang-p23@mails.tsinghua.edu.cn)
+- ORCID: [0009-0007-0437-9141](https://orcid.org/0009-0007-0437-9141)
+- GitHub: [pei-wang-cs](https://github.com/pei-wang-cs)

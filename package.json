@@ -1,10 +1,10 @@
 {
-  "name": "academic-pages",
+  "name": "pei-wang-academic-homepage",
   "version": "0.8.1.1",
-  "description": "Academic Pages Mistakes Jekyll theme npm build scripts",
+  "description": "Frontend build scripts for Pei Wang's academic homepage",
   "repository": {
     "type": "git",
-    "url": "https://github.com/academicpages/academicpages.github.io"
+    "url": "https://github.com/pei-wang-cs/pei-wang.github.io"
   },
   "keywords": [
     "jekyll",
@@ -17,9 +17,9 @@
   ],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/academicpages/academicpages.github.io/issues"
+    "url": "https://github.com/pei-wang-cs/pei-wang.github.io/issues"
   },
-  "homepage": "https://github.com/academicpages/academicpages.github.io",
+  "homepage": "https://pei-wang-cs.github.io/pei-wang.github.io/",
   "engines": {
     "node": ">= 0.10.0"
   },
