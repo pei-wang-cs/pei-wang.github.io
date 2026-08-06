@@ -35,7 +35,9 @@ author:
   # Academic websites
   academia         : # URL
   arxiv            : # URL - Update with the correct link to your profile
-  googlescholar    :
+  # Scholar search for the verified CAV 2026 paper; replace with a public
+  # citations profile URL when one is available.
+  googlescholar    : "https://scholar.google.com/scholar?q=%22Deadlock+Verification+via+Ordering-Constrained+Mutex+Modeling%22"
   inspire-hep      : # URL
   impactstory      : # URL
   orcid            : "https://orcid.org/0009-0007-0437-9141"

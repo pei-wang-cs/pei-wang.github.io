@@ -5,7 +5,11 @@ permalink: /publications/
 author_profile: true
 ---
 
-My publications are listed below. Persistent identifiers and reproducibility artifacts are linked with each entry.
+My publications are listed below with abstracts, persistent identifiers, and reproducibility artifacts.
+
+{% if site.author.googlescholar %}
+You can also find my work on <a href="{{ site.author.googlescholar }}">Google Scholar</a>.
+{% endif %}
 
 {% include base_path %}
 
@@ -29,5 +33,3 @@ My publications are listed below. Persistent identifiers and reproducibility art
     {% include archive-single.html %}
   {% endfor %}
 {% endif %}
-
-

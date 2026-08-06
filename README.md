@@ -11,7 +11,6 @@ This repository contains the source for Pei Wang's academic homepage, built with
 - Site-wide metadata and sidebar: `_config.yml`
 - Homepage: `_pages/about.md`
 - Publications: `_publications/`
-- CV: `_pages/cv.md`
 - Navigation: `_data/navigation.yml`
 
 ## Local preview

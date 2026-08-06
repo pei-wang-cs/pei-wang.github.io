@@ -13,7 +13,6 @@ A concise index of the public content on this site. An [XML sitemap]({{ base_pat
 
 - [Home]({{ base_path }}/)
 - [Publications]({{ base_path }}/publications/)
-- [Curriculum Vitae]({{ base_path }}/cv/)
 
 <h2>Publication Details</h2>
 
