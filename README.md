@@ -34,6 +34,8 @@ bundle exec jekyll build --strict_front_matter
 
 The repository is currently named `pei-wang.github.io`, so GitHub Pages treats it as a project site under `/pei-wang.github.io`. If the repository is renamed to `pei-wang-cs.github.io` for a root user site, change `baseurl` in `_config.yml` to an empty string.
 
+In **Settings → Pages → Build and deployment**, set **Source** to **GitHub Actions**. The workflow in `.github/workflows/jekyll-build.yml` builds, uploads, and deploys the site; using branch deployment as well would start a redundant GitHub-generated Pages workflow.
+
 ## License
 
 The theme is derived from Academic Pages and Minimal Mistakes under the MIT License. See `LICENSE` for details.
