@@ -18,6 +18,7 @@ excerpt: >-
 date: 2026-10-07
 venue: "41st IEEE/ACM International Conference on Automated Software Engineering (ASE 2026)"
 paperurl: "https://doi.org/10.1145/3832783.3837438"
+artifacturl: "https://doi.org/10.5281/zenodo.21775785"
 citation: "Pei Wang, Zhihang Sun, and Fei He. (2026). &quot;Precise and Efficient Static Data Race Detection.&quot; <i>Proceedings of the 41st IEEE/ACM International Conference on Automated Software Engineering (ASE ’26)</i>, pp. 1793–1805."
 ---
 
@@ -37,6 +38,7 @@ Links
 -----
 
 - [Publisher version](https://doi.org/10.1145/3832783.3837438)
+- [Reproducibility artifact](https://doi.org/10.5281/zenodo.21775785)
 - [Conference page and abstract](https://conf.researchr.org/details/ase-2026/ase-2026-research-track/142/Precise-and-Efficient-Static-Data-Race-Detection)
 
 BibTeX
