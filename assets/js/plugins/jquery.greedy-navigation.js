@@ -6,12 +6,17 @@
 */
 
 var $nav = $('#site-nav');
-var $btn = $('#site-nav button');
+var $btn = $('#site-nav .nav-toggle');
 var $vlinks = $('#site-nav .visible-links');
 var $vlinks_persist_tail = $vlinks.children("*.persist.tail");
 var $hlinks = $('#site-nav .hidden-links');
 
 var breaks = [];
+
+function closeNav() {
+  $hlinks.addClass('hidden');
+  $btn.removeClass('close').attr('aria-expanded', 'false');
+}
 
 function updateNav() {
 
@@ -50,22 +55,12 @@ function updateNav() {
     // Hide the dropdown btn if hidden list is empty
     if (breaks.length < 1) {
       $btn.addClass('hidden');
-      $btn.removeClass('close');
-      $hlinks.addClass('hidden');
+      closeNav();
     }
   }
 
   // Keep counter updated
   $btn.attr("count", breaks.length);
-
-  // update masthead height and the body/sidebar top padding
-  var mastheadHeight = $('.masthead').height();
-  $('body').css('padding-top', mastheadHeight + 'px');
-  if ($(".author__urls-wrapper button").is(":visible")) {
-    $(".sidebar").css("padding-top", "");
-  } else {
-    $(".sidebar").css("padding-top", mastheadHeight + "px");
-  }
 
 }
 
@@ -74,13 +69,30 @@ function updateNav() {
 $(window).on('resize', function () {
   updateNav();
 });
-screen.orientation.addEventListener("change", function () {
-  updateNav();
-});
+$(window).on('load', updateNav);
+if (document.fonts && document.fonts.ready) {
+  document.fonts.ready.then(updateNav);
+}
+if (window.screen && window.screen.orientation && typeof window.screen.orientation.addEventListener === 'function') {
+  window.screen.orientation.addEventListener('change', updateNav);
+} else {
+  $(window).on('orientationchange', updateNav);
+}
 
 $btn.on('click', function () {
   $hlinks.toggleClass('hidden');
-  $(this).toggleClass('close');
+  var expanded = !$hlinks.hasClass('hidden');
+  $btn.toggleClass('close', expanded).attr('aria-expanded', String(expanded));
 });
 
+$nav.on('click', 'a', closeNav);
+$nav.on('keydown', function (event) {
+  if (event.key === 'Escape' && !$hlinks.hasClass('hidden')) {
+    closeNav();
+    $btn.trigger('focus');
+    event.preventDefault();
+  }
+});
+
+closeNav();
 updateNav();

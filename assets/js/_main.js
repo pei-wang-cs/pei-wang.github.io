@@ -10,27 +10,34 @@ const PLOTLY_URL = "https://cdn.jsdelivr.net/npm/plotly.js@3.6.0/dist/plotly.min
 const MERMAID_URL = "https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs";
 
 // Detect OS/browser preference
-const browserPref = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+const browserThemeQuery = typeof window.matchMedia === 'function'
+  ? window.matchMedia('(prefers-color-scheme: dark)')
+  : null;
+
+function readThemeSetting() {
+  try {
+    const storedTheme = localStorage.getItem('theme');
+    return storedTheme === 'dark' || storedTheme === 'light' ? storedTheme : 'system';
+  } catch (error) {
+    return 'system';
+  }
+}
+
+// Keep manual choices for this page even when browser storage is unavailable.
+let themeSetting = readThemeSetting();
 
 // Determine the computed theme, which can be "dark" or "light".
 function determineComputedTheme() {
-  // Determine the expected state of the theme toggle, which can be "dark", "light", or default "system"
-  let themeSetting = localStorage.getItem("theme");
-  themeSetting = (themeSetting != "dark" && themeSetting != "light" && themeSetting != "system") ? "system" : themeSetting;
-
   // Return the setting if set, or use the browser preference
   if (themeSetting != "system") {
     return themeSetting;
   }
-  return browserPref ? "dark" : "light";
+  return browserThemeQuery && browserThemeQuery.matches ? "dark" : "light";
 }
 
 // Set the theme on page load or when explicitly called
 function setTheme(theme) {
-  const use_theme = theme ||
-    localStorage.getItem("theme") ||
-    $("html").attr("data-theme") ||
-    browserPref;
+  const use_theme = theme === 'dark' || theme === 'light' ? theme : determineComputedTheme();
 
   if (use_theme === "dark") {
     $("html").attr("data-theme", "dark");
@@ -39,13 +46,23 @@ function setTheme(theme) {
     $("html").removeAttr("data-theme");
     $("#theme-icon").removeClass("fa-moon").addClass("fa-sun");
   }
+
+  $('#theme-toggle').attr({
+    'aria-label': use_theme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme',
+    'aria-pressed': String(use_theme === 'dark')
+  });
 }
 
 // Toggle the theme manually
 function toggleTheme() {
   const current_theme = $("html").attr("data-theme");
   const new_theme = current_theme === "dark" ? "light" : "dark";
-  localStorage.setItem("theme", new_theme);
+  themeSetting = new_theme;
+  try {
+    localStorage.setItem("theme", new_theme);
+  } catch (error) {
+    // The theme still changes when storage is blocked or full.
+  }
   setTheme(new_theme);
   redrawPlotly();
 }
@@ -141,35 +158,24 @@ function redrawPlotly() {
 $(document).ready(function () {
   // SCSS SETTINGS - These should be the same as the settings in the relevant files
   const scssLarge = 925;          // pixels, from /_sass/_themes.scss
-  const scssMastheadHeight = 70;  // pixels, from the current theme (e.g., /_sass/theme/_default.scss)
 
   // If the user hasn't chosen a theme, follow the OS preference
   setTheme();
-  window.matchMedia('(prefers-color-scheme: dark)')
-        .addEventListener("change", (e) => {
-          if (!localStorage.getItem("theme")) {
-            setTheme(e.matches ? "dark" : "light");
-          }
-        });
+  if (browserThemeQuery) {
+    const followSystemTheme = function () {
+      if (themeSetting === 'system') {
+        setTheme();
+      }
+    };
+    if (typeof browserThemeQuery.addEventListener === 'function') {
+      browserThemeQuery.addEventListener('change', followSystemTheme);
+    } else if (typeof browserThemeQuery.addListener === 'function') {
+      browserThemeQuery.addListener(followSystemTheme);
+    }
+  }
 
   // Enable the theme toggle
   $('#theme-toggle').on('click', toggleTheme);
-
-  // Enable the sticky footer
-  var bumpIt = function () {
-    $("body").css("padding-bottom", "0");
-    $("body").css("margin-bottom", $(".page__footer").outerHeight(true));
-  }
-  $(window).resize(function () {
-    didResize = true;
-  });
-  setInterval(function () {
-    if (didResize) {
-      didResize = false;
-      bumpIt();
-    }}, 250);
-  var didResize = false;
-  bumpIt();
 
   // Follow menu drop down
   $(".author__urls-wrapper button").on("click", function () {

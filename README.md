@@ -12,6 +12,22 @@ This repository contains the source for Pei Wang's academic homepage, built with
 - Homepage: `_pages/about.md`
 - Publications: `_publications/`
 - Navigation: `_data/navigation.yml`
+- Homepage layout: `_layouts/home.html`
+- Shared academic styling: `_sass/layout/_academic.scss`
+- Publication list styling: `_sass/layout/_publications.scss`
+
+## Layout and style
+
+The homepage uses a compact academic layout inspired by [Shenao Wang's homepage](https://shenaow.github.io/): a sticky profile sidebar, section navigation, serif typography, and a continuous About / News / Publications page. On small screens, the profile sits above the content and contact links wrap onto multiple lines. Light and dark themes are supported.
+
+Homepage publications are generated from `_publications/`, grouped by year with the newest first. Both the homepage and `/publications/` use compact entries; full abstracts and BibTeX remain on each paper's detail page. Adding a publication does not require duplicating its information on the homepage.
+
+After changing JavaScript sources, regenerate the checked-in browser bundle:
+
+```bash
+npm install
+npm run build:js
+```
 
 ## Local preview
 

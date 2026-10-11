@@ -19,7 +19,7 @@ author_profile: true
         <section class="publications__section" aria-labelledby="publications-{{ category[0] | slugify }}">
           <h2 class="publications__heading" id="publications-{{ category[0] | slugify }}">{{ category[1].title }}</h2>
           {% for post in category_posts %}
-            {% include publication-list-item.html %}
+            {% include publication-list-item.html compact=true %}
           {% endfor %}
         </section>
       {% endif %}
@@ -27,7 +27,7 @@ author_profile: true
   {% else %}
     <section class="publications__section" aria-label="Publication list">
       {% for post in site.publications reversed %}
-        {% include publication-list-item.html %}
+        {% include publication-list-item.html compact=true %}
       {% endfor %}
     </section>
   {% endif %}
