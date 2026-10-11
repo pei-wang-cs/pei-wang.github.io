@@ -2,6 +2,12 @@
 title: "Deadlock Verification via Ordering-Constrained Mutex Modeling"
 collection: publications
 category: conferences
+authors:
+  - Pei Wang
+  - Zhilei Han
+  - Zhihang Sun
+  - Fei He
+venue_short: "CAV 2026"
 permalink: /publication/deadlock-verification-ordering-constrained-mutex-modeling/
 excerpt: >-
   Mutexes are widely used to synchronize concurrent programs, but incorrect

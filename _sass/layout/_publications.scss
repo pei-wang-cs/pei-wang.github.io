@@ -1,0 +1,151 @@
+/* Publication lists use one readable type scale without changing other archives. */
+.publications {
+  max-width: 76ch;
+  font-family: $global-font-family;
+  font-size: 17px;
+  line-height: 1.7;
+  overflow-wrap: break-word;
+
+  a {
+    color: var(--global-base-color);
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.18em;
+
+    &:focus-visible {
+      outline: 2px solid currentColor;
+      outline-offset: 4px;
+      border-radius: 2px;
+    }
+  }
+
+  .publications__intro {
+    margin: 0 0 2rem;
+    font-size: 16px;
+  }
+
+  .publications__section + .publications__section {
+    margin-top: 2.5rem;
+  }
+
+  .publications__heading {
+    margin: 0 0 1.25rem;
+    padding-bottom: 0.6rem;
+    border-bottom: 1px solid var(--global-border-color);
+    font-family: inherit;
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 1.35;
+  }
+
+  .publication {
+    padding: 0 0 1.75rem;
+
+    + .publication {
+      padding-top: 1.75rem;
+      border-top: 1px solid var(--global-border-color);
+    }
+  }
+
+  .publication__title {
+    margin: 0 0 0.45rem;
+    font-family: inherit;
+    font-size: 21px;
+    font-weight: 600;
+    line-height: 1.4;
+
+    a {
+      color: var(--global-text-color);
+      text-decoration: none;
+
+      &:hover,
+      &:focus-visible {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  // Explicit colors keep nested metadata in sync during the theme transition.
+  .publication__authors,
+  .publication__venue {
+    color: var(--global-text-color);
+
+    span,
+    strong {
+      color: var(--global-text-color);
+    }
+  }
+
+  .publication__authors {
+    margin: 0 0 0.3rem;
+    font-size: 16px;
+    line-height: 1.6;
+
+    strong {
+      font-weight: 600;
+    }
+  }
+
+  .publication__venue {
+    margin: 0;
+    font-size: 15px;
+    font-style: normal;
+    line-height: 1.6;
+  }
+
+  .publication__venue-short {
+    font-weight: 600;
+    white-space: nowrap;
+  }
+
+  .publication__separator {
+    padding: 0 0.15em;
+  }
+
+  .publication__excerpt {
+    margin-top: 0.75rem;
+    font-size: inherit;
+    line-height: inherit;
+
+    p {
+      margin: 0 0 0.65rem;
+    }
+  }
+
+  .publication__links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.3rem 1.15rem;
+    margin: 0.75rem 0 0;
+    padding: 0;
+    list-style: none;
+    font-size: 15px;
+    line-height: 1.6;
+
+    li {
+      margin: 0;
+      padding: 0;
+    }
+
+    a {
+      display: inline-block;
+      padding: 0.2rem 0;
+    }
+  }
+
+  @media (max-width: 600px) {
+    font-size: 16px;
+
+    .publications__heading {
+      font-size: 22px;
+    }
+
+    .publication__title {
+      font-size: 20px;
+    }
+  }
+}
+
+/* The theme's dark accent is too dim for small text; underlines identify links. */
+html[data-theme="dark"] .publications a {
+  color: var(--global-text-color);
+}
