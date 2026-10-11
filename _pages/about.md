@@ -15,4 +15,5 @@ I am a Ph.D. student at the School of Software, Tsinghua University, and a membe
 News
 ----
 
+- **2026-10** — Our paper “[Precise and Efficient Static Data Race Detection]({{ '/publication/precise-efficient-static-data-race-detection/' | relative_url }})” was published in the ASE 2026 proceedings. [[Paper](https://doi.org/10.1145/3832783.3837438)]
 - **2026-07** — Our paper “[Deadlock Verification via Ordering-Constrained Mutex Modeling]({{ '/publication/deadlock-verification-ordering-constrained-mutex-modeling/' | relative_url }})” was published at CAV 2026. [[Paper](https://doi.org/10.1007/978-3-032-32519-8_3)] [[Artifact](https://doi.org/10.5281/zenodo.19696864)]

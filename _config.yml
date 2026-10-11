@@ -23,7 +23,7 @@ repository               : "pei-wang-cs/pei-wang.github.io"
 #               Additional customization can be done by editing /_includes/author-profile.html
 author:
   # Biographic information
-  avatar           : "https://avatars.githubusercontent.com/u/61134436?v=4"
+  avatar           : "pei-wang.jpg"
   name             : "Pei Wang"
   pronouns         : # example: "she/her"  
   bio              : "Ph.D. student working on formal verification of concurrent programs"
@@ -35,9 +35,7 @@ author:
   # Academic websites
   academia         : # URL
   arxiv            : # URL - Update with the correct link to your profile
-  # Scholar search for the verified CAV 2026 paper; replace with a public
-  # citations profile URL when one is available.
-  googlescholar    : "https://scholar.google.com/scholar?q=%22Deadlock+Verification+via+Ordering-Constrained+Mutex+Modeling%22"
+  googlescholar    : "https://scholar.google.com/citations?user=dwO39GEAAAAJ&hl=zh-CN"
   inspire-hep      : # URL
   impactstory      : # URL
   orcid            : "https://orcid.org/0009-0007-0437-9141"
@@ -151,6 +149,7 @@ social:
   type                   : Person
   name                   : "Pei Wang"
   links:
+    - "https://scholar.google.com/citations?user=dwO39GEAAAAJ&hl=zh-CN"
     - "https://orcid.org/0009-0007-0437-9141"
     - "https://github.com/pei-wang-cs"
     - "https://thufv.github.io/team/"
