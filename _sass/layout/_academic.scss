@@ -229,6 +229,38 @@ a:focus-visible, button:focus-visible {
 }
 .all-publications { font-size: 15px; }
 
+.sidebar .visitor-map {
+  grid-column: 1 / -1;
+  width: 100%;
+  max-width: 200px;
+  margin-top: 22px;
+  padding-top: 16px;
+  border-top: 1px solid var(--global-border-color);
+
+  .visitor-map__title {
+    margin: 0 0 10px;
+    color: var(--global-text-color-light);
+    font-size: 14px;
+  }
+
+  .visitor-map__canvas {
+    width: 200px;
+    max-width: 100%;
+    min-height: 217px;
+    overflow: hidden;
+
+    img, canvas, iframe { max-width: 100%; }
+    img { height: auto; }
+    a { display: block; }
+  }
+
+  .visitor-map__note {
+    margin: 8px 0 0;
+    color: var(--global-text-color-light);
+    font-size: 12px;
+  }
+}
+
 .page__footer {
   position: static;
   float: none;

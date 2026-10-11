@@ -29,6 +29,16 @@ npm install
 npm run build:js
 ```
 
+## Visitor map
+
+The profile sidebar displays a [MapMyVisitors](https://mapmyvisitors.com/) visitor globe below the profile links on pages with an author sidebar. The account-specific widget ID is configured in `_config.yml`.
+
+1. [Sign in or create your account](https://mapmyvisitors.com/b/signup), then [create a Globe Widget](https://mapmyvisitors.com/add) for `https://pei-wang-cs.github.io/pei-wang.github.io/`.
+2. Copy the value of the `d` query parameter from the generated `https://mapmyvisitors.com/globe.js?...` embed URL.
+3. Put that value in `_config.yml` under `visitor_map.widget_id`, then rebuild and deploy the site.
+
+Use your own site's ID so visits are attributed to your website. While the ID is empty, the entire component stays hidden and no MapMyVisitors script is requested. Once enabled, the widget loads from MapMyVisitors and relies on that service to collect and display visitor locations; it does not recover earlier visits.
+
 ## Local preview
 
 Install Ruby, Bundler, and the dependencies in `Gemfile`, then run:

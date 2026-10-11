@@ -1,0 +1,21 @@
+{% assign visitor_map_id = site.visitor_map.widget_id | default: '' | strip %}
+{% if visitor_map_id != '' %}
+  <section class="visitor-map" aria-label="Visitor globe">
+    <p class="visitor-map__title">Visitors</p>
+    <div class="visitor-map__canvas">
+      <script id="mmvst_globe" type="text/javascript" src="https://mapmyvisitors.com/globe.js?d={{ visitor_map_id | url_encode | escape }}"></script>
+    </div>
+    <script>
+      /* The widget observes window scrolling, while the desktop profile scrolls independently. */
+      (() => {
+        const sidebar = document.currentScript.closest('.sidebar');
+        if (sidebar) {
+          sidebar.addEventListener('scroll', () => {
+            window.dispatchEvent(new Event('scroll'));
+          }, { passive: true });
+        }
+      })();
+    </script>
+    <noscript><p class="visitor-map__note">Enable JavaScript to view the visitor globe.</p></noscript>
+  </section>
+{% endif %}

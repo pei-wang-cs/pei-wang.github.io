@@ -156,6 +156,11 @@ social:
 
 
 # Analytics
+# MapMyVisitors: paste the value after `d=` from your own Globe Widget embed code.
+# Leave empty to hide the widget and make no requests to the service.
+visitor_map:
+  widget_id: "r4ma7fE5-dri6QR3SiCIdg-oeCvoQcVXfon7ScU8vIM"
+
 analytics:
   provider               :  "false" # false (default), "google", "google-universal", "google-analytics-4", "custom"
   google:
